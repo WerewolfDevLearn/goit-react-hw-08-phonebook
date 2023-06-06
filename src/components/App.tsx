@@ -4,6 +4,7 @@ import routes from './routes';
 import Loader from './Loader/Loader';
 import Section from './Layout/Section';
 import PrivateRoutes from '../utils/PrivateRoutes';
+
 import 'normalize.css';
 
 // lazy

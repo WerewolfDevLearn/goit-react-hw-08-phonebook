@@ -34,7 +34,7 @@ export default function UpdateContactForm({ contact, closeModal }: UpdateForm) {
 
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmitFormik} validationSchema={schema}>
-      <Form className={ContactFormStl.ContactForm}>
+      <Form className={ContactFormStl.UpdateForm}>
         <label className={ContactFormStl.label} htmlFor='name'>
           Name
           <Field type='text' name='name' className={ContactFormStl.input} />
