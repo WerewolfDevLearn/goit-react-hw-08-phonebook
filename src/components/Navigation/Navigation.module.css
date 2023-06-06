@@ -1,0 +1,27 @@
+.list {
+  padding: 0px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+}
+
+.navLink {
+  text-decoration: none;
+  color: #221122;
+  border: solid 1px #222222;
+  border-radius: 2px;
+  padding: 5px;
+}
+.navLink:hover {
+  background-color: #616161;
+  color: #fff;
+}
+.navLink:active {
+  color: #fff;
+  background-color: #2d2d2d;
+}

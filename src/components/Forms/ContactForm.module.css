@@ -1,0 +1,44 @@
+.ContactForm {
+  width: 600px;
+  border: solid 1px;
+  border-radius: 4px;
+  border-color: rgb(211, 211, 211);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 2;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
+}
+
+.input {
+  width: 300px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.buttonSubmit {
+  margin-bottom: 10px;
+  width: 100px;
+  background-color: rgb(131, 131, 131);
+  color: white;
+  border-radius: 4px;
+  border: none;
+  line-height: 1.5;
+}
+.buttonSubmit:hover {
+  background-color: rgb(61, 61, 61);
+}

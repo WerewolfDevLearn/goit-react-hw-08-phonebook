@@ -1,0 +1,42 @@
+.list {
+  padding: 0px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: baseline;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+}
+
+.navLink {
+  text-decoration: none;
+  color: #221122;
+  /* border: solid 1px #222222;
+  border-radius: 2px; */
+  padding: 5px 10px;
+}
+.navLink:hover {
+  background-color: #616161;
+  color: #fff;
+}
+.navLink:active {
+  color: #fff;
+  background-color: #2d2d2d;
+}
+.btn {
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 100px;
+  background-color: rgb(131, 131, 131);
+  color: white;
+  border-radius: 4px;
+  border: none;
+  line-height: 1.5;
+  /* height: 30px; */
+}
+.btn:hover {
+  background-color: rgb(61, 61, 61);
+}
