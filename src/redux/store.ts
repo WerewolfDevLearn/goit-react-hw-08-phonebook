@@ -24,8 +24,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(contactApi.middleware),
-  // .concat(ErrorLogger),
+    })
+      .concat(contactApi.middleware)
+      .concat(ErrorLogger),
   devTools: process.env.NODE_ENV === 'development',
 });
 setupListeners(store.dispatch);

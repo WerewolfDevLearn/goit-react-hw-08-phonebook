@@ -6,10 +6,7 @@ import usePHBState from '../redux/selectors';
 import Loader from '../components/Loader/Loader';
 
 import { useGetContatsQuery } from '../redux/contacts/contactsApi';
-
 import { IContact } from '../types';
-// import { useNavigate } from 'react-router-dom';
-// import routes from '../components/routes';
 
 export default function ContactsPage() {
   const { filter } = usePHBState();
