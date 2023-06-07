@@ -9,8 +9,12 @@ import 'normalize.css';
 import { useAppDispatch } from '../redux/store';
 import { getCurrent } from '../redux/auth/authOps';
 import PubliceRourtes from './Routes/PubliceRoutes';
-
-// lazy
+// import HomePage from '../pages/HomePage';
+// import LoginPage from '../pages/LoginPage';
+// import RegisterPage from '../pages/RegisterPage';
+// import ContactsPage from '../pages/ContactsPage';
+// import ErrorPage from '../pages/ErrorPage';
+// // lazy
 const HomePage = lazy(() => import('../pages/HomePage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -30,8 +34,8 @@ export default function App() {
   ) : (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route element={<PubliceRourtes />}>
-          <Route path={routes.home} element={<Section />}>
+        <Route path={routes.home} element={<Section />}>
+          <Route element={<PubliceRourtes />}>
             <Route index element={<HomePage />} />
             <Route path={routes.login} element={<LoginPage />} />
             <Route path={routes.register} element={<RegisterPage />} />
