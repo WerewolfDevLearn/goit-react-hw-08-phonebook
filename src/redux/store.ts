@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { contactApi } from './contactsApi';
+import { contactApi } from './contacts/contactsApi';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { persistedUserReducer } from './authSlice';
-import { errorReducer } from './errorSlice';
-import { isLoadingReducer } from './isLoadingSlice';
-import { filterReducer } from './filterSlices';
+import { persistedUserReducer } from './auth/slices/authfulfilledSlice';
+import { isRefreshingReducer } from './auth/slices/authRefreshingSlice';
+import { errorReducer } from './auth/slices/authErrorSlice';
+import { isLoadingReducer } from './auth/slices/authIsLoadingSlice';
+import { filterReducer } from './contacts/filterSlices';
 import { ErrorLogger } from '../utils/notify-MD';
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     user: persistedUserReducer,
     error: errorReducer,
     isLoading: isLoadingReducer,
+    isRefreshing: isRefreshingReducer,
     [contactApi.reducerPath]: contactApi.reducer,
     filter: filterReducer,
   },

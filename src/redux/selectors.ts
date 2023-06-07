@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
-import { ISate } from '../types';
+import { RootState } from './store';
+
 export default function usePHBState() {
-  return useSelector((state: ISate) => state);
+  return useSelector((state: RootState) => state);
 }

@@ -5,8 +5,8 @@ import PagesSTL from './Pages.module.css';
 import usePHBState from '../redux/selectors';
 import Loader from '../components/Loader/Loader';
 
-import { useGetContatsQuery } from '../redux/contactsApi';
-import { getCurrent } from '../redux/authOps';
+import { useGetContatsQuery } from '../redux/contacts/contactsApi';
+import { getCurrent } from '../redux/auth/authOps';
 
 import { useEffect } from 'react';
 import { useAppDispatch } from '../redux/store';
@@ -29,6 +29,7 @@ export default function ContactsPage() {
   useEffect(() => {
     dispatch(getCurrent());
   }, [dispatch]);
+
   const visibleContacts = getVisibleContacts(items);
   return (
     <div className={PagesSTL.container}>

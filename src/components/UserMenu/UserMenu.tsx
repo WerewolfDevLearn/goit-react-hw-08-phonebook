@@ -1,6 +1,6 @@
 import UserStyle from './UserMenu.module.css';
 import { useAppDispatch } from '../../redux/store';
-import { logOut } from '../../redux/authOps';
+import { logOut } from '../../redux/auth/authOps';
 import { IUserMenu } from '../../types';
 
 function UserMenu({ userName }: IUserMenu) {

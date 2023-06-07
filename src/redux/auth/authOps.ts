@@ -1,7 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { userRegister, userLogin, userLogOut, getCurrentUser, token } from '../services/authAxApi';
-import { ILogin, IUser, Icredentials, IOCurrentUser } from '../types';
-import { RootState } from './store';
+import {
+  userRegister,
+  userLogin,
+  userLogOut,
+  getCurrentUser,
+  token,
+} from '../../services/authAxApi';
+import { ILogin, IUser, Icredentials, IOCurrentUser } from '../../types';
+import { RootState } from '../store';
 import axios, { AxiosError } from 'axios';
 
 export const register = createAsyncThunk<Icredentials, IUser, { rejectValue: string }>(
@@ -58,12 +64,8 @@ export const getCurrent = createAsyncThunk<IOCurrentUser, undefined, { rejectVal
     try {
       const state = getState() as RootState;
       const stateToken = state.user.token;
-      console.log('stateToken: ', stateToken);
-      if (!stateToken) return;
-
+      if (!stateToken) return rejectWithValue('Please register or login!');
       const credentials = await getCurrentUser(stateToken);
-      console.log('credentials: ', credentials);
-
       return credentials;
     } catch (error: unknown) {
       if (axios.isAxiosError<{ error: { message: string } }>(error)) {

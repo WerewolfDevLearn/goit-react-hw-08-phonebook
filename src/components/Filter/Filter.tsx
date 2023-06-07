@@ -1,5 +1,5 @@
 import FilterStl from './Filter.module.css';
-import { ContactFilter } from '../../redux/filterSlices';
+import { ContactFilter } from '../../redux/contacts/filterSlices';
 import usePHBState from '../../redux/selectors';
 import { useDispatch } from 'react-redux';
 

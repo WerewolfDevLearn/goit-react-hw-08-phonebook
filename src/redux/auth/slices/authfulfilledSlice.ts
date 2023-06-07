@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, userlogin, logOut, getCurrent } from './authOps';
-import { IUserState } from '../types';
+import { register, userlogin, logOut, getCurrent } from '../authOps';
+import { IUserState } from '../../../types';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 

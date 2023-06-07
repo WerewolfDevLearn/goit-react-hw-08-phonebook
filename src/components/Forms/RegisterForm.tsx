@@ -2,7 +2,7 @@ import { Formik, Form, Field, FormikHelpers, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { IUser } from '../../types';
 import { useAppDispatch } from '../../redux/store';
-import { register } from '../../redux/authOps';
+import { register } from '../../redux/auth/authOps';
 import ContactFormStl from './ContactForm.module.css';
 import { useEffect } from 'react';
 import usePHBState from '../../redux/selectors';
@@ -23,14 +23,6 @@ const schema = yup.object().shape({
 
 export default function RegisterForm() {
   const dispatch = useAppDispatch();
-  const { user } = usePHBState();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user.profile.name) {
-      navigate(routes.contacts);
-    }
-  }, [navigate, user.profile.name]);
 
   const onSubmitFormik = (values: IUser, { resetForm }: FormikHelpers<IUser>) => {
     dispatch(register(values));

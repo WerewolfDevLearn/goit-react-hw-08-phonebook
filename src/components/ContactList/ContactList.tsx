@@ -1,6 +1,6 @@
 import ContactListItem from './ContactListItem/ContactListItem';
 import ContactListStl from './ContactListItem/ContactListItem.module.css';
-import { useDeleteContactMutation } from '../../redux/contactsApi';
+import { useDeleteContactMutation } from '../../redux/contacts/contactsApi';
 import { IContact } from '../../types';
 import Loader from '../Loader/Loader';
 

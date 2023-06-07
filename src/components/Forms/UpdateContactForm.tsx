@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useUpdateContactsMutation } from '../../redux/contactsApi';
+import { useUpdateContactsMutation } from '../../redux/contacts/contactsApi';
 import * as yup from 'yup';
 // Styles
 import ContactFormStl from './ContactForm.module.css';
@@ -28,7 +28,6 @@ export default function UpdateContactForm({ contact, closeModal }: UpdateForm) {
       id: contact.id,
     };
     updateContacts(newContact);
-
     closeModal();
   };
 

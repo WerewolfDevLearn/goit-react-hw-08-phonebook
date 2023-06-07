@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, userlogin, logOut, getCurrent } from './authOps';
+import { register, userlogin, logOut, getCurrent } from '../authOps';
 
 const initialState = '';
-// const errorHandler = (state: string, action: PayloadAction<string, string>) => {
-//   state = payload;
-// };
 
 const errorSlice = createSlice({
   name: 'error',

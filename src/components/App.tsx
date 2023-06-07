@@ -1,11 +1,14 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import routes from './routes';
 import Loader from './Loader/Loader';
 import Section from './Layout/Section';
-import PrivateRoutes from '../utils/PrivateRoutes';
-
+import PrivateRoutes from './Routes/PrivateRoutes';
+import usePHBState from '../redux/selectors';
 import 'normalize.css';
+import { useAppDispatch } from '../redux/store';
+import { getCurrent } from '../redux/auth/authOps';
+import PubliceRourtes from './Routes/PubliceRoutes';
 
 // lazy
 const HomePage = lazy(() => import('../pages/HomePage'));
@@ -15,21 +18,30 @@ const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 
 export default function App() {
-  return (
-    <>
-      <Suspense fallback={<Loader />}>
-        <Routes>
+  const { isRefreshing } = usePHBState();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getCurrent());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route element={<PubliceRourtes />}>
           <Route path={routes.home} element={<Section />}>
             <Route index element={<HomePage />} />
             <Route path={routes.login} element={<LoginPage />} />
             <Route path={routes.register} element={<RegisterPage />} />
-            <Route element={<PrivateRoutes />}>
-              <Route path={routes.contacts} element={<ContactsPage />} />
-            </Route>
-            <Route path='*' element={<ErrorPage />} />
           </Route>
-        </Routes>
-      </Suspense>
-    </>
+          <Route element={<PrivateRoutes />}>
+            <Route path={routes.contacts} element={<ContactsPage />} />
+          </Route>
+          <Route path='*' element={<ErrorPage />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
