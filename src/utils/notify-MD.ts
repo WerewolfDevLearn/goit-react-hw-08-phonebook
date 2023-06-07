@@ -6,14 +6,17 @@ const regExp = {
   userRegFF: 'user/Register/fulfilled',
   userLoginFF: 'user/Login/fulfilled',
   userLogOutFF: 'user/LogOut/fulfilled',
+
+  // userRegRJ: 'user/Register/rejected',
+  // userLoginRJ: 'user/Login/rejected',
+  // userLogOutRJ: 'user/LogOut/rejected',
 };
 
 export const ErrorLogger: Middleware = (_api) => (next) => (action) => {
   console.log(action);
 
   if (isRejected(action)) {
-    toast.error(`${action.payload}.
-   Please change your data and repeat you request`);
+    toast.error(action.payload);
   }
 
   if (action.type === regExp.userRegFF || action.type === regExp.userLoginFF)
