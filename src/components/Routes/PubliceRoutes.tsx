@@ -3,7 +3,9 @@ import { Outlet, Navigate } from 'react-router-dom';
 import routes from '../routes';
 
 export default function PubliceRoutes() {
-  const { user } = usePHBState();
+  const {
+    user: { profile },
+  } = usePHBState();
 
-  return user.token ? <Navigate to={routes.contacts} /> : <Outlet />;
+  return profile.name ? <Navigate to={routes.contacts} /> : <Outlet />;
 }

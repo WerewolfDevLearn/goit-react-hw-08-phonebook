@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ILogin, IUser, Icredentials, IOCurrentUser } from '../types';
+import { ILogin, IUser } from '../types';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 

@@ -5,6 +5,7 @@ import usePHBState from '../../redux/selectors';
 function AppHeader() {
   const state = usePHBState();
   const userName = state.user.profile.name;
+
   return <header>{userName ? <UserMenu userName={userName} /> : <Navigation />}</header>;
 }
 
