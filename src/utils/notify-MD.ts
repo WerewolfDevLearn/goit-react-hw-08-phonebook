@@ -2,6 +2,8 @@ import { isRejected } from '@reduxjs/toolkit';
 
 import { toast } from 'react-toastify';
 import { Middleware } from 'redux';
+const regExpContacts = '/contacts/gm';
+const regExpUser = '/user/gm';
 const regExp = {
   userRegFF: 'user/Register/fulfilled',
   userLoginFF: 'user/Login/fulfilled',
@@ -15,7 +17,10 @@ const regExp = {
 export const ErrorLogger: Middleware = (_api) => (next) => (action) => {
   console.log(action);
 
-  if (isRejected(action)) {
+  if (isRejected(action) && action.type.match(regExpContacts)) {
+    toast.error(action.payload);
+  }
+  if (isRejected(action) && action.type.match(regExpUser)) {
     toast.error(action.payload);
   }
 
