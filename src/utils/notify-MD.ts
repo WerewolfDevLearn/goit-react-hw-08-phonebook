@@ -8,15 +8,9 @@ const regExp = {
   userRegFF: 'user/Register/fulfilled',
   userLoginFF: 'user/Login/fulfilled',
   userLogOutFF: 'user/LogOut/fulfilled',
-
-  // userRegRJ: 'user/Register/rejected',
-  // userLoginRJ: 'user/Login/rejected',
-  // userLogOutRJ: 'user/LogOut/rejected',
 };
 
 export const ErrorLogger: Middleware = (_api) => (next) => (action) => {
-  console.log(action);
-
   if (isRejected(action) && action.type.match(regExpContacts)) {
     toast.error(action.payload);
   }

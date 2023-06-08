@@ -8,7 +8,6 @@ export default function Modal({ isOpen, onCloseModal, children }: ModaLProps): J
   const overlayRef = useRef<HTMLHeadingElement>(null);
 
   const pressEscBtn = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    console.log(event);
     if (event.code === 'Escape') {
       onCloseModal();
     }
